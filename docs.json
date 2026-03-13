@@ -1,122 +1,108 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "name": "MakeMeRank.ai",
+  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/logo/logo.png",
+    "dark": "/logo/logo.png",
+    "href": "https://makemerank.ai"
   },
-  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#EA580C",
+    "light": "#F7931A",
+    "dark": "#EA580C"
+  },
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "icon": "book",
+          "href": "/"
+        },
+        {
+          "anchor": "App",
+          "icon": "rocket",
+          "href": "https://makemerank.ai"
+        },
+        {
+          "anchor": "GEO Wiki",
+          "icon": "book-open-cover",
+          "href": "https://makemerank.ai/wiki"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Guides",
         "groups": [
           {
             "group": "Getting started",
+            "pages": ["index", "quickstart"]
+          },
+          {
+            "group": "Quick Scan",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "guides/quickscan",
+              "guides/interpreting-scores",
+              "guides/how-quickscan-works"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Full Report",
+            "pages": ["guides/full-report", "guides/how-analysis-works", "guides/actions"]
+          },
+          {
+            "group": "Content Generation",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "guides/content-generation",
+              "guides/post-image",
+              "guides/linkedin-integration",
+              "guides/writing-styles"
             ]
           },
           {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
+            "group": "GEO basics",
+            "pages": ["guides/geo-overview", "guides/methodology"]
           },
           {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
+            "group": "Account",
+            "pages": ["guides/plans", "guides/faq"]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    ]
   },
   "navbar": {
     "links": [
       {
+        "label": "Login",
+        "href": "https://makemerank.ai/auth"
+      },
+      {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@makemerank.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Scan for free now",
+      "href": "https://makemerank.ai"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/makemerankai",
+      "linkedin": "https://www.linkedin.com/company/makemerank-ai/"
     }
+  },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": false
+  },
+  "feedback": {
+    "suggestEdit": false,
+    "raiseIssue": false
   }
 }

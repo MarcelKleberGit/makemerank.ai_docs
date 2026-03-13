@@ -1,0 +1,118 @@
+---
+title: "How Analysis Works"
+description: "Technical explanation: Full Report in detail"
+icon: "gears"
+---
+
+## Overview
+
+The **Analysis** (Full Report) goes much deeper and takes up to **90 seconds**. It consists of **five steps** executed sequentially.
+
+## Three Analysis Strands
+
+The analysis is based on three parallel or sequential strands:
+
+### 1. Technical Audit (Context/Clarity) – domains only
+
+**Goal:** How well is your website readable and understandable for AI models?
+
+- **Website crawl** – Your website is crawled, important pages analyzed
+- **Structured data** – Schema.org/JSON-LD, meta tags, heading hierarchy, Open Graph
+- **llms.txt** – Is it present? Does it offer AI models a structured summary?
+- **robots.txt** – Which AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.) are allowed to crawl?
+- **Image alt texts**, **canonical**, **meta robots**, **HTTPS**, **response time**
+
+**Result:** The **Clarity score** (0–100) shows how well AI can capture and correctly assign your content. For person scans this strand is skipped.
+
+### 2. Visibility (Unseeded)
+
+**Goal:** Are you recommended in general queries too – without your brand being explicitly mentioned?
+
+- **Search queries** are generated based on industry and offering (navigational, commercial, comparative, optional custom)
+- **Unseeded** = The AI receives **no hint** about your brand. This tests whether you are organically recommended – as in a real customer query
+- **Search models:** Perplexity Sonar and GPT-4o-mini Search
+- **Per intent** it is checked: Is your brand mentioned? At which position?
+- **Position scoring:** Position 0 = highest score, Position 3+ = lower score
+
+**Result:** The **Presence score** (0–100) shows how often and prominently you appear in AI search results. For person scans, recognition rate from the Recognition strand is additionally included (50/50 blend).
+
+### 3. Recognition & Risk
+
+**Goal:** Do models know you? Are there mix-ups or misinformation?
+
+- **Knowledge mode:** Several LLMs are directly asked – e.g. "Do you know [brand]?" – without web search
+- **Search mode:** Same models with web search to include current sources
+- **Per model:** Confidence (how certain?), external sources, ambiguities (mix-ups)
+- **Aggregation:** Recognition rate, average confidence, external authority
+
+**Result:** **Recognition score** and **Risk score** – contradictions and uncertainties flow into the Risk score.
+
+## Scoring (Full Report)
+
+After the three strands, scores are calculated:
+
+| Dimension | Source |
+|-----------|--------|
+| **Recognition** | Recognition model results, known_ratio, external_authority_score |
+| **Presence** | Unseeded intent results; for persons: 50% Unseeded + 50% recognition rate |
+| **Clarity** | Technical audit (domain only); person scans: 0 |
+| **Risk** | Recognition aggregation (ambiguities, uncertainties) |
+
+**Weighting for domains:**
+
+- Recognition: 25%
+- Presence: 35%
+- Clarity: 30%
+- Risk: 10%
+
+**Weighting for persons:**
+
+- Recognition: 60%
+- Presence: 15%
+- Clarity: 0% (not applicable)
+- Risk: 25%
+
+## Action Recommendations
+
+Action recommendations are generated using **Flagship models**. They draw on the **three analysis strands** (technical audit, visibility, recognition) and apply **best practices** to produce prioritized measures:
+
+- Each recommendation refers to a **finding source** (technical audit, visibility analysis, recognition test, score engine)
+- **E-E-A-T assignment:** Experience, Expertise, Authoritativeness, Trustworthiness
+- **Priority:** High, Medium, Low
+- **Effort:** Quick Win, Medium, Strategic
+- **Expected effect** is described
+
+## Temporal Sequence
+
+1. **Context-Clarity** (technical audit) – for domains
+2. **Unseeded** (visibility) – can run parallel with Recognition
+3. **Recognition/Risk**
+4. **Scoring** – calculation of final scores
+5. **Actions** – generation of action recommendations
+
+Timeout for the full analysis: approx. **95 seconds**.
+
+---
+
+## Entity Types
+
+| Type | Description | Clarity | Note |
+|------|-------------|---------|------|
+| **Domain** | Website (e.g. `makemerank.ai`) | Yes | Technical audit is performed |
+| **Person** | Name + topic (e.g. "John Smith, B2B SEO") | No | Specify topic for more precise Presence scoring |
+
+---
+
+## LinkedIn Context
+
+When you have a **LinkedIn profile** connected (or pass a LinkedIn URL), **context from your profile** can optionally be used to build more specific queries. Instead of generic formulations like "SEO consultant", the **Primary Category** and **Brand Claim** are derived automatically from your actual profile. This makes the Intent and Recognition calls more precise – and yields more accurate results.
+
+MakeMeRank uses the **official LinkedIn API** with **read-only access** (no risk). Only publicly available data is used – e.g. headline, summary, and posts. Nothing private is accessed.
+
+---
+
+## Result Variability
+
+AI models respond **non-deterministically**. With repeated scans, scores can vary slightly. Broad trends stay stable; small deviations (e.g. ±5 points) are normal.
+
+For this reason, some calls are executed **multiple times in sequence** and the results are averaged. In addition, the API calls are configured to return as consistent and realistic results as possible (e.g. via temperature settings and prompt design).

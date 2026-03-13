@@ -1,33 +1,27 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# MakeMeRank Dokumentation
 
-# Documentation project instructions
+## Über dieses Projekt
 
-## About this project
+- Dokumentationsseite für [MakeMeRank.ai](https://makemerank.ai) – GEO/AEO-Tool zur AI-Sichtbarkeit
+- Technik: [Mintlify](https://mintlify.com), MDX-Dateien mit YAML-Frontmatter
+- Konfiguration: `docs.json`
+- Lokale Vorschau: `mint dev`
+- Link-Check: `mint broken-links`
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Run `mint dev` to preview locally
-- Run `mint broken-links` to check links
+## Terminologie
 
-## Terminology
+- **GEO** – Generative Engine Optimization
+- **AEO** – Answer Engine Optimization
+- **Quick Scan** – Kostenlose Kurzanalyse
+- **Full Report** – Detaillierter Report mit Handlungsempfehlungen
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+## Stil
 
-## Style preferences
+- Aktiv und Du-Ansprache
+- Kurze Sätze
+- Satzcase für Überschriften
+- **Fett** für UI-Elemente, `Code` für Befehle/Dateien
 
-{/* Add any project-specific style rules below */}
+## Grenzen
 
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
-
-## Content boundaries
-
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Keine internen Admin-Features dokumentieren

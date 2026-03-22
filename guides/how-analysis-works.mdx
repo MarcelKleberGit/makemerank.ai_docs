@@ -1,118 +1,119 @@
 ---
-title: "How Analysis Works"
-description: "Technical explanation: Full Report in detail"
+title: "How Full Report Works"
+description: "Technical explanation of the Full Report: analysis strands, weighting, and recommendations."
 icon: "gears"
+keywords: ["Full Report", "analysis", "scoring", "visibility", "recognition"]
 ---
 
 ## Overview
 
-The **Analysis** (Full Report) goes much deeper and takes up to **90 seconds**. It consists of **five steps** executed sequentially.
+The Full Report is the deep diagnostic layer behind MakeMeRank. In the app, it runs as a multi-step pipeline with visible progress and combines three analysis strands into one overall picture.
 
-## Three Analysis Strands
+## The three analysis strands
 
-The analysis is based on three parallel or sequential strands:
+### 1. Technical audit
 
-### 1. Technical Audit (Context/Clarity) – domains only
+This strand is active only for **domain scans**. It checks how readable, structured, and semantically understandable your website is for AI systems.
 
-**Goal:** How well is your website readable and understandable for AI models?
+Signals include:
 
-- **Website crawl** – Your website is crawled, important pages analyzed
-- **Structured data** – Schema.org/JSON-LD, meta tags, heading hierarchy, Open Graph
-- **llms.txt** – Is it present? Does it offer AI models a structured summary?
-- **robots.txt** – Which AI bots (GPTBot, ClaudeBot, PerplexityBot, etc.) are allowed to crawl?
-- **Image alt texts**, **canonical**, **meta robots**, **HTTPS**, **response time**
+- crawl data such as `title`, `meta description`, `H1`, `H2`, excerpts, and canonical
+- structured data such as `Schema.org` / `JSON-LD`
+- `llms.txt`, `robots.txt`, and AI bot access
+- Open Graph data, language, HTTPS, response time, and `meta robots`
+- GEO and content signals such as answer blocks, Q&A patterns, lists, hidden content, and snippet risks
 
-**Result:** The **Clarity score** (0–100) shows how well AI can capture and correctly assign your content. For person scans this strand is skipped.
+The result is the **clarity score**.
 
-### 2. Visibility (Unseeded)
+### 2. Visibility
 
-**Goal:** Are you recommended in general queries too – without your brand being explicitly mentioned?
+This strand checks whether you are recommended even when your brand name is not explicitly mentioned in the prompt.
 
-- **Search queries** are generated based on industry and offering (navigational, commercial, comparative, optional custom)
-- **Unseeded** = The AI receives **no hint** about your brand. This tests whether you are organically recommended – as in a real customer query
-- **Search models:** Perplexity Sonar and GPT-4o-mini Search
-- **Per intent** it is checked: Is your brand mentioned? At which position?
-- **Position scoring:** Position 0 = highest score, Position 3+ = lower score
+It does this by:
 
-**Result:** The **Presence score** (0–100) shows how often and prominently you appear in AI search results. For person scans, recognition rate from the Recognition strand is additionally included (50/50 blend).
+- generating neutral search intents
+- testing different query types such as navigational, commercial, comparative, and optionally a custom search focus
+- checking whether search-oriented models mention you and how prominently you appear
+- evaluating positioning signals such as the competitive cohort AI seems to prefer
 
-### 3. Recognition & Risk
+The result is the **visibility score**.
 
-**Goal:** Do models know you? Are there mix-ups or misinformation?
+### 3. Recognition and risk
 
-- **Knowledge mode:** Several LLMs are directly asked – e.g. "Do you know [brand]?" – without web search
-- **Search mode:** Same models with web search to include current sources
-- **Per model:** Confidence (how certain?), external sources, ambiguities (mix-ups)
-- **Aggregation:** Recognition rate, average confidence, external authority
+This strand measures how stably different models recognize you and how high the risk is for confusion, ambiguity, or weak classification.
 
-**Result:** **Recognition score** and **Risk score** – contradictions and uncertainties flow into the Risk score.
+MakeMeRank looks at:
 
-## Scoring (Full Report)
+- **Knowledge**: what models know without web access
+- **Web Search**: what models can find through current sources
+- confidence, external mentions, and ambiguities per model
+- aggregated recognition rate and external authority
 
-After the three strands, scores are calculated:
+The result is the **recognition score** and **risk score**.
 
-| Dimension | Source |
-|-----------|--------|
-| **Recognition** | Recognition model results, known_ratio, external_authority_score |
-| **Presence** | Unseeded intent results; for persons: 50% Unseeded + 50% recognition rate |
-| **Clarity** | Technical audit (domain only); person scans: 0 |
-| **Risk** | Recognition aggregation (ambiguities, uncertainties) |
+## The five pipeline steps in the app
 
-**Weighting for domains:**
+While the report is running, MakeMeRank shows these steps:
 
-- Recognition: 25%
-- Presence: 35%
-- Clarity: 30%
-- Risk: 10%
+1. **Context analysis**
+2. **Visibility analysis**
+3. **Recognition analysis**
+4. **Scoring**
+5. **Recommendations**
 
-**Weighting for persons:**
+Some steps can be skipped or weighted differently depending on the scan type. For example, person scans do not include the technical audit.
 
-- Recognition: 60%
-- Presence: 15%
-- Clarity: 0% (not applicable)
-- Risk: 25%
+## How the scores are weighted
 
-## Action Recommendations
+| Dimension | What it is based on |
+|-----------|---------------------|
+| **Recognition** | Model recognition, confidence, and external authority |
+| **Visibility** | Unseeded search queries and placements |
+| **Clarity** | Technical and crawl signals for domains |
+| **Risk** | Uncertainty, ambiguity, and contradictions |
 
-Action recommendations are generated using **Flagship models**. They draw on the **three analysis strands** (technical audit, visibility, recognition) and apply **best practices** to produce prioritized measures:
+### Weighting for domains
 
-- Each recommendation refers to a **finding source** (technical audit, visibility analysis, recognition test, score engine)
-- **E-E-A-T assignment:** Experience, Expertise, Authoritativeness, Trustworthiness
-- **Priority:** High, Medium, Low
-- **Effort:** Quick Win, Medium, Strategic
-- **Expected effect** is described
+- **Recognition:** 25%
+- **Visibility:** 35%
+- **Clarity:** 30%
+- **Risk:** 10%
 
-## Temporal Sequence
+### Weighting for persons
 
-1. **Context-Clarity** (technical audit) – for domains
-2. **Unseeded** (visibility) – can run parallel with Recognition
-3. **Recognition/Risk**
-4. **Scoring** – calculation of final scores
-5. **Actions** – generation of action recommendations
+- **Recognition:** 60%
+- **Visibility:** 15%
+- **Clarity:** 0%
+- **Risk:** 25%
 
-Timeout for the full analysis: approx. **95 seconds**.
+<Warning>
+For person scans, the topic is critical. If you enter only a name, the visibility analysis becomes less precise and MakeMeRank has to rely more heavily on fallbacks.
+</Warning>
 
----
+## How recommendations are created
 
-## Entity Types
+Recommendations are not invented independently. They are derived directly from the analysis strands. Each recommendation includes:
 
-| Type | Description | Clarity | Note |
-|------|-------------|---------|------|
-| **Domain** | Website (e.g. `makemerank.ai`) | Yes | Technical audit is performed |
-| **Person** | Name + topic (e.g. "John Smith, B2B SEO") | No | Specify topic for more precise Presence scoring |
+- a **finding source**, such as the technical audit or visibility analysis
+- a **priority**
+- a rough **effort level**
+- an expected **impact**
+- an **E-E-A-T** classification
 
----
+This makes it clear why a given action appears in the report.
 
-## LinkedIn Context
+## LinkedIn and extra context
 
-When you have a **LinkedIn profile** connected (or pass a LinkedIn URL), **context from your profile** can optionally be used to build more specific queries. Instead of generic formulations like "SEO consultant", the **Primary Category** and **Brand Claim** are derived automatically from your actual profile. This makes the Intent and Recognition calls more precise – and yields more accurate results.
+For person scans, LinkedIn can make the report more precise. MakeMeRank uses that context to improve search focus, classification, and prompt specificity around your real positioning.
 
-MakeMeRank uses the **official LinkedIn API** with **read-only access** (no risk). Only publicly available data is used – e.g. headline, summary, and posts. Nothing private is accessed.
+The LinkedIn connection is **read-only**. It is used for context, not for posting.
 
----
+## Why results can vary slightly
 
-## Result Variability
+LLMs do not respond deterministically. Small differences between runs are normal. What matters more than a few points is the direction:
 
-AI models respond **non-deterministically**. With repeated scans, scores can vary slightly. Broad trends stay stable; small deviations (e.g. ±5 points) are normal.
+- are you recognized more consistently?
+- do you appear more often in recommendations?
+- are your signals becoming clearer and more consistent?
 
-For this reason, some calls are executed **multiple times in sequence** and the results are averaged. In addition, the API calls are configured to return as consistent and realistic results as possible (e.g. via temperature settings and prompt design).
+If you want to understand how to turn the report directly into topics and drafts, see [Content Generation](/guides/content-generation).

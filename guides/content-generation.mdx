@@ -1,73 +1,85 @@
 ---
 title: "Content Generation"
-description: "Derive LinkedIn posts and blog articles in your style from the analysis"
+description: "Generate topic suggestions and drafts based on reports, personas, and Content Sources."
 icon: "pen-fancy"
+keywords: ["content", "personas", "Content Sources", "LinkedIn", "blog article"]
 ---
 
 ## Overview
 
-From the gaps in your analysis, MakeMeRank generates **content suggestions** – LinkedIn/B2B posts and long blog articles – tailored to your brand, topic, and the gaps found.
+In MakeMeRank, you first generate **topic suggestions** and then turn one of them into a finished **LinkedIn / B2B post** or a **long-form blog article**. The suggestions are shaped by your report context, persona, and existing content.
 
-The texts are formulated in **your style**, not as generic AI output. MakeMeRank uses your **personas** and **content sources** for this.
+## Which contexts can flow in
 
-For each suggestion, a **Perplexity Research Call** is run based on your **Primary Category** and **Brand Claim**, so current trends and developments are incorporated into the content.
+Content generation can combine several sources:
 
-## Why Content Generation Matters
+- **report context** from a Full Report
+- a **persona** for tone, language, and perspective
+- **Content Sources** as additional content context
+- a **LinkedIn connection** for extra enrichment
+- **additional inspiration** from a free text field
 
-Content created with your analysis gaps serves three goals:
+## Which formats are available
 
-1. **Citeable snippets** – Core statements are formulated so they work as standalone quotes or abstracts. When AI models surface your content, they can extract clear, quotable snippets instead of vague or fragmented text.
-2. **Higher authority** – Content that addresses your actual gaps and uses E-E-A-T signals strengthens how AI perceives and cites you as a source.
-3. **Better discoverability** – By targeting the intents and topics where you currently underperform, you increase the chance that AI models will find and recommend you in relevant queries.
+| Format | Use case |
+|--------|----------|
+| **LinkedIn / B2B post** | A shorter, sharper post for social and personal reach |
+| **Long blog article** | A more detailed article with more depth and structure |
 
-## Context Weighting
-
-You can fine-tune which context influences the suggestions. Move the point in the grid to weight **LinkedIn**, **Report**, **Content Sources**, or **New Topics** higher. The optional field below lets you add extra topic ideas or inspiration sources.
-
-![Context weighting: Grid with LinkedIn, Report, Content Sources, New Topics; optional additional inspiration field](/images/context-weighting.png)
-
-## Formats
-
-| Format | Description |
-|--------|-------------|
-| **LinkedIn / B2B Post** | Short, concise posts for social media – core statements formulated as standalone quotes |
-| **Long Blog Article** | In-depth articles with structure – abstracts suitable for AI search snippets |
-
-## Process
+## The current flow in the app
 
 <Steps>
-  <Step title="Add persona">
-    Create a persona with description or sample text. Choose context tags for tone, role, and topic (e.g. Tech, Founder, Listicle). Each piece of content requires a persona.
+  <Step title="Choose scan context">
+    By default, MakeMeRank uses the active report. In freestyle flows, you can also work without report context once enough of your own context is available.
   </Step>
 
-  <Step title="Use content sources">
-    Connect LinkedIn or upload posts/articles. If you include them, they help produce thematically similar content, avoid duplicates, and supplement your story.
+  <Step title="Choose a format">
+    Select whether you want to create a LinkedIn / B2B post or a long blog article.
   </Step>
 
-  <Step title="Fine-tune context (optional)">
-    Use the **Context weighting** grid to control which context the suggestions should weight higher: LinkedIn, Report, Content Sources, or New Topics. You can also add additional inspiration in the text field below.
+  <Step title="Choose a persona">
+    A persona is required. It controls tone, language, and the persona-specific context that can be used.
   </Step>
 
-  <Step title="Generate topic suggestions">
-    Click **Generate topics**. MakeMeRank creates matching topics based on your analysis and context.
+  <Step title="Refine the context">
+    You can optionally use LinkedIn, add extra inspiration, and fine-tune how strongly each source should influence the suggestions.
   </Step>
 
-  <Step title="Create post">
-    Select a topic and click **Create post + image**. Optional: Enable Quality Pass, choose post image style.
+  <Step title="Generate 2 topic suggestions">
+    MakeMeRank first creates two topic suggestions. You then choose which one should be expanded.
   </Step>
 
-  <Step title="Edit and use">
-    Edit the draft as needed, copy the text, or save the image.
+  <Step title="Generate the draft">
+    You can optionally enable a post image and choose an image theme before generating the final output.
+  </Step>
+
+  <Step title="Regenerate if needed">
+    If you want, you can give the system short feedback and regenerate the draft again.
   </Step>
 </Steps>
 
-## Credits
+## Content without an active report
 
-| Plan | Suggestions | Generations |
-|------|-------------|-------------|
-| Free | Limited | Limited |
-| Pro | More | More |
+MakeMeRank can also generate topic ideas without a selected report if enough of your own context already exists. This is currently possible when:
 
-<Callout icon="circle-info" color="#EA580C">
-Content generation uses the gaps from your analysis – the texts address exactly the topics where AI currently doesn’t mention you strongly enough.
-</Callout>
+- LinkedIn is connected
+- or at least **5 saved pieces of content** exist as Content Sources
+
+In that case, MakeMeRank skips report context as an input source and works from your existing context instead.
+
+## Advanced weighting
+
+The advanced weighting control lets you decide which sources should shape your suggestions more strongly. This is useful when you want to lean more heavily on existing content or intentionally allow more new topics.
+
+## Better results with personas and Content Sources
+
+The quality of suggestions improves significantly when both are set up well:
+
+- **Personas** define the style and perspective.
+- **Content Sources** provide real material from your existing content.
+
+<Info>
+Content generation is tightly connected to the Full Report, but it can now also work more flexibly with your own context. For the strongest results, combine report context, a persona, and Content Sources.
+</Info>
+
+If you want to set up those two building blocks first, continue with [Content Sources](/guides/content-sources) and [Personas](/guides/writing-styles).

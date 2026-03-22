@@ -1,46 +1,69 @@
 ---
 title: "How Quickscan Works"
-description: "Technical explanation: Quickscan in detail"
+description: "Technical explanation of the Quickscan: models, web signals, and snapshot logic."
 icon: "gears"
+keywords: ["Quickscan", "technical explanation", "snapshot", "website checks", "AI models"]
 ---
 
 ## Overview
 
-The **Quickscan** is fast and free. It measures your AI visibility with four scores in about 15 seconds. For domains, a light web probe is included; for persons, only the AI models are queried.
+The Quickscan is the fast first layer before the Full Report. It does not build a full root-cause tree. Instead, it gives you a compact snapshot of how AI models currently recognize you and whether the most important basics are already in place.
 
-## Process
+## Technical flow
 
-1. You enter a **domain** (e.g. `makemerank.ai`) or a **person** (name + topic).
-2. MakeMeRank starts **parallel** queries:
-   - **4 AI models** are queried with a standardized visibility prompt
-   - **For domains:** A **web probe** is additionally performed (llms.txt, robots.txt, meta tags, Schema, etc.)
-3. After at most **15 seconds** (or as soon as all models have responded), scores are aggregated.
-4. You receive four scores: **Recognition**, **Visibility**, **Positioning**, **Consistency** – plus an **Overall score** (0–100).
+1. You enter a **domain** or a **person with topic**.
+2. MakeMeRank launches multiple **parallel model queries**.
+3. For **domains**, lightweight website signals are added.
+4. The responses are condensed into a snapshot.
+5. You see model evidence, recognition, and depending on the entity type either website basics or profile clarity.
 
-## AI Models Used
+## Which models are queried
 
-| Provider | Model | Web Search |
-|----------|-------|------------|
-| Anthropic | Claude 3.5 Haiku | Yes |
-| Google | Gemini 3 Flash | Yes |
-| Perplexity | Sonar | Yes |
-| OpenAI | GPT-4o-mini Search | Yes |
+The Quickscan queries four AI systems in parallel:
 
-## Web Signals (domains only)
+- **ChatGPT**
+- **Claude**
+- **Gemini**
+- **Perplexity**
 
-For domain scans, a light **web probe** is also performed:
+The goal is not only to see whether you are mentioned, but also how clearly the models can classify you.
 
-- **Homepage fetch** – Title, meta description, H1, Open Graph, canonical
-- **llms.txt** – Present or not?
-- **robots.txt** – Are AI bots (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, anthropic-ai, cohere-ai) blocked or allowed?
-- **Schema.org / JSON-LD** – Which types are present?
-- **Word count**, **language** (lang attribute), **HTTPS**, **response time**
+## Which web signals are included for domains
 
-These signals feed into the **Clarity/Positioning score** (how well the website is readable for AI).
+For domain scans, MakeMeRank enriches the model responses with a lightweight technical check. This includes, among other things:
 
-## Scoring
+- `title`, `meta description`, and `H1`
+- `Open Graph` data
+- `canonical URL`
+- `llms.txt`
+- `Schema.org` / structured data
+- `robots.txt` with AI bot access signals
+- language, word count, HTTPS, and response time
+- `meta robots`
 
-The four scores are queried per model and then **averaged** (successful models only):
+These checks are intentionally lighter than in the Full Report. They are meant to show whether the most important foundations exist, not to explain every technical issue on your site.
 
-- **Overall** ≈ average of Recognition, Presence, Clarity, and (100 − Risk)
-- Models deliver structured JSON responses with `scores`, `reasoning`, and `known` (whether brand/person is recognized)
+## What happens for person scans
+
+For person scans, there is no website audit. Instead, the Quickscan focuses on how consistently the models recognize you and whether they can classify your topic correctly.
+
+<Tip>
+For person scans, always enter `name + topic`. That is the only way MakeMeRank can distinguish between a simple name mention and an actual expert classification.
+</Tip>
+
+## How to read the result
+
+The Quickscan mainly answers three questions:
+
+- **Are you recognized by multiple models?**
+- **Are the key website signals present?**
+- **Is there already concrete evidence or are there obvious early gaps?**
+
+What the Quickscan intentionally does **not** provide:
+
+- a full root-cause analysis
+- prioritized actions
+- unseeded visibility without your brand name
+- detailed content recommendations
+
+That is exactly what the [Full Report](/guides/full-report) is for.

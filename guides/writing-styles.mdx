@@ -1,50 +1,89 @@
 ---
 title: "Personas"
-description: "Define writing styles for authentic content suggestions"
+description: "Create personas to define tone, language, and persona-specific context for content generation."
 icon: "palette"
+keywords: ["Personas", "writing style", "tone of voice", "LinkedIn", "Content Sources"]
 ---
 
-## What are Personas?
+## What a persona controls in MakeMeRank
 
-Personas are **required** for content generation – every piece of content is based on a persona. A persona combines **writing style** and **background/context**, configured via tags (e.g. Tech, Founder, Listicle). This ensures suggestions sound like you and match your positioning.
+A persona is the central template for content generation. Without a persona, MakeMeRank cannot generate personalized topic suggestions or drafts.
 
-## Creating a Persona
+A persona controls:
+
+- **tone** and writing style
+- the **language** used in generation
+- extra context through **tags**
+- which **persona-specific Content Sources** can be used
+
+## How to create a persona
 
 <Steps>
   <Step title="Open Personas">
-    In the dashboard under **Personas** or **Content** → Writing style configuration.
+    Go to **Personas** in the dashboard.
   </Step>
 
-  <Step title="Create new persona">
-    Click **Create new persona**.
+  <Step title="Choose a name and language">
+    Give the persona a name and decide whether it should inherit your profile language or use `DE` or `EN` explicitly.
   </Step>
 
-  <Step title="Name and description">
-    Enter a name (e.g. "My LinkedIn style") and describe your style or add a sample text.
+  <Step title="Add context tags">
+    Choose tags that describe the persona. They help MakeMeRank weight style and perspective more accurately.
   </Step>
 
-  <Step title="Choose context tags">
-    Select tags that describe your persona: tone (personal, professional, humorous), role (expert, consultant, founder), topic (tech, marketing, career), etc.
+  <Step title="Choose the persona source">
+    You can either add your own sample text or use LinkedIn as the context source.
   </Step>
 
-  <Step title="Optional: AI analysis">
-    Use **Create persona** to have your text summarized and optimized by AI. You can use the AI summary or the original text.
+  <Step title="Create the persona">
+    MakeMeRank summarizes the context with AI and stores the resulting persona.
   </Step>
 
-  <Step title="Set as default">
-    If you have multiple personas, mark one as default for content generation.
+  <Step title="Optionally set it as default">
+    If you have multiple personas, you can mark one as the default. It will be preselected in content generation.
   </Step>
 </Steps>
 
-## Context Tags
+## Which tags are available
 
-The tags help the AI weight your persona better:
+Tags are grouped into four areas:
 
-- **Tone:** Personal, Professional, Humorous, Inspiring, Factual
-- **Role:** Expert, Thought Leader, Consultant, Founder
-- **Topic:** Surveys, Career, Leadership, Tech, Marketing, Storytelling
-- **Format:** Listicle, How-to, Opinion
+- **Tone:** Personal, professional, humorous, inspiring, factual
+- **Role:** Expert, thought leader, advisor, founder
+- **Topic:** Surveys, career, leadership, tech, marketing
+- **Format:** Storytelling, listicle, how-to, opinion
 
-## Tonality in Profile
+## Using LinkedIn as a persona source
 
-In your **Profile** you can additionally set a **default tonality** (e.g. Professional, Casual, Witty, Direct) and a **tonality sample text**. These feed in as a basis for personal content.
+Instead of entering manual sample text, you can derive a persona from your LinkedIn context. In that flow, MakeMeRank uses:
+
+- profile data from LinkedIn
+- the latest retrievable posts
+- an automatically generated summary for the persona
+
+The LinkedIn connection is **read-only**. It is used only to provide better context for the persona and for content generation.
+
+<Info>
+When you use LinkedIn as the source, the persona can reflect not only your tone more accurately, but also your real positioning, recurring themes, and typical phrasing.
+</Info>
+
+## How personas and Content Sources work together
+
+In content generation, you always choose exactly one persona. MakeMeRank then combines:
+
+- the persona itself
+- matching **Content Sources** limited to that persona
+- optionally the selected report context
+
+This lets you maintain different content setups, for example for founder posts, deeper expert content, or more personal LinkedIn updates.
+
+## Post image themes
+
+On the same page, you can also create custom **post image themes**. These themes appear later during content generation when you choose to generate an image for a post.
+
+A theme contains:
+
+- a custom visual style name
+- an image instruction for look, atmosphere, and color direction
+
+If you also want to manage the underlying context for your content, continue with [Content Sources](/guides/content-sources).

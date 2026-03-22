@@ -1,53 +1,67 @@
 ---
 title: "Quickscan"
-description: "How the free Quickscan works for AI visibility"
+description: "The free Quickscan gives you a snapshot of how visible you are across AI models."
 icon: "magnifying-glass"
+keywords: ["Quickscan", "AI visibility", "snapshot", "Full Report", "LLM visibility"]
 ---
 
-## Overview
+## What you get from the Quickscan
 
-The Quickscan gives you a first overview of your AI visibility in about 2 minutes. It's free and requires no sign-up.
+The Quickscan is your fastest entry point into MakeMeRank. It is free, does not require sign-up, and gives you an initial evidence snapshot of your AI visibility.
 
-## What is checked?
+<Info>
+The Quickscan is intentionally a snapshot, not a final ranking. For root causes, priorities, and concrete actions, you need the Full Report.
+</Info>
 
-MakeMeRank queries various AI models with standardized questions about your domain or person and evaluates the answers against four criteria:
+## What is checked
 
-| Score | Meaning |
-|-------|---------|
-| **Recognition** | Does AI find you right away? |
-| **Visibility** | Does AI recommend you further? |
-| **Positioning** | Does AI understand what you offer? |
-| **Consistency** | Do AI facts about you agree? |
+What you see depends on whether you scan a domain or a person:
 
-## Supported AI Models
+| Area | Domain scan | Person scan |
+|------|-------------|-------------|
+| **AI recognition** | Shows how many models recognize you | Shows how clearly models can classify you |
+| **Website basics / profile clarity** | Highlights key technical and content signals from your website | Shows whether your profile is understood consistently across models |
+| **Evidence from models** | Shows how individual models describe you or fail to find you | Shows how individual models classify you or overlook you |
 
-The Quickscan uses:
+For domain scans, lightweight website checks are also included, such as `title`, `meta description`, `H1`, `llms.txt`, `schema`, `canonical`, `robots.txt`, language, HTTPS, and response time.
 
-- **ChatGPT** (OpenAI)
-- **Claude** (Anthropic)
-- **Google AI / Gemini**
-- **Perplexity** (Sonar)
+## Which models are used
 
-## Steps for Quickscan
+The Quickscan queries four AI systems in parallel:
+
+- **ChatGPT**
+- **Claude**
+- **Gemini**
+- **Perplexity**
+
+## How the Quickscan works
 
 <Steps>
-  <Step title="Choose domain or person">
-    Enter either your domain (e.g. `makemerank.ai`) or your name plus topic (e.g. "John Smith, B2B SEO").
+  <Step title="Enter a domain or person">
+    Enter a domain like `makemerank.ai` or, for person scans, always use **name + topic**, for example `Jane Doe, B2B SEO`.
   </Step>
 
-  <Step title="Optional: Connect LinkedIn">
-    With a connected LinkedIn profile we improve the analysis through more context. You can also start without LinkedIn.
+  <Step title="Optionally add LinkedIn">
+    For person scans, you can optionally connect LinkedIn to provide additional context. You can also start without it.
   </Step>
 
-  <Step title="Start scan">
-    Click **Scan**. The queries run in parallel and typically take 1–2 minutes.
+  <Step title="Start the Quickscan">
+    MakeMeRank runs the model queries in parallel and, for domains, adds lightweight website signals.
   </Step>
 
-  <Step title="Review results">
-    You see the four scores plus a short summary. The Full Report shows details for each model.
+  <Step title="Read the snapshot">
+    You immediately see which models find you, how clearly you are classified, and which early signals on your site are present or missing.
   </Step>
 </Steps>
 
-## Technical Details
+## When to move straight to the Full Report
 
-A full explanation – which models are used, how scores are calculated, and web signals for domains – is in [How Quickscan Works](/guides/how-quickscan-works). For the Analysis (Full Report) flow, see [How Analysis Works](/guides/how-analysis-works).
+The Full Report is the right next step if you want to:
+
+- understand **why** you are not being recommended
+- get concrete **action recommendations**
+- test your **visibility without your brand name**
+- understand the **technical causes** behind weak signals
+- create **content suggestions** directly from the findings
+
+For the methodology behind the snapshot, see [How Quickscan Works](/guides/how-quickscan-works). If you want to understand the deep-dive analysis, see [Full Report](/guides/full-report) and [How Full Report Works](/guides/how-analysis-works).

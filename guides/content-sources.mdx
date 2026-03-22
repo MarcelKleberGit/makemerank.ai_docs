@@ -1,0 +1,93 @@
+---
+title: "Content Sources"
+description: "Use existing content as context for better topic suggestions and more personalized drafts."
+icon: "link"
+keywords: ["Content Sources", "LinkedIn", "blog", "persona", "content generation"]
+---
+
+## What Content Sources are
+
+Content Sources are your existing pieces of content that MakeMeRank can use as context. They help topic suggestions and drafts stay closer to your actual style, recurring themes, and existing narrative.
+
+Typical use cases:
+
+- revisiting similar themes without repeating yourself
+- matching your tone and storytelling more accurately
+- aligning suggestions more closely with your current positioning
+- limiting context to specific personas only
+
+## Which sources you can add
+
+| Source | What happens |
+|--------|--------------|
+| **Free text** | Paste in an existing post or excerpt directly |
+| **URL crawl** | MakeMeRank reads a blog article or LinkedIn article from a URL |
+| **File upload** | `TXT`, `DOC`, `DOCX`, and `PDF` files are extracted and summarized |
+| **LinkedIn import** | Connect LinkedIn and import selected posts directly |
+
+All content is automatically summarized before use so structure, tone, and key ideas are available as compact context.
+
+## Slots and limits
+
+MakeMeRank currently manages two content areas:
+
+| Area | Maximum |
+|------|---------|
+| **LinkedIn / B2B** | 10 entries |
+| **Blog** | 5 entries |
+
+If all slots are filled, you can deliberately replace an existing entry when adding a new one.
+
+## Persona scope
+
+Each Content Source can be used in one of two ways:
+
+- **For all personas**
+- **Only for selected personas**
+
+This matters when you maintain separate personas for different tones, roles, or content goals.
+
+<Tip>
+Persona-specific Content Sources directly affect content generation. The selected persona controls not only the tone, but also which saved content is allowed to flow into the prompt.
+</Tip>
+
+## How to set up Content Sources
+
+<Steps>
+  <Step title="Open Content Sources">
+    Go to **Content Sources** in the dashboard.
+  </Step>
+
+  <Step title="Optionally connect LinkedIn">
+    Connect LinkedIn if you want to import existing posts directly. The connection is read-only.
+  </Step>
+
+  <Step title="Add a source">
+    Add content through free text, URL, file upload, or LinkedIn import.
+  </Step>
+
+  <Step title="Choose persona scope">
+    Decide whether the content should apply to all personas or only selected ones.
+  </Step>
+
+  <Step title="Use it in content generation">
+    Later, choose a persona. MakeMeRank will automatically use the matching Content Sources.
+  </Step>
+</Steps>
+
+## Content without report context
+
+There is also an additional content flow without active report context. It becomes available if at least one of these conditions is met:
+
+- your **LinkedIn** account is connected
+- you have stored at least **5 posts or articles** as context
+
+In that case, you can generate new topic ideas even without selecting a report.
+
+## Privacy and control
+
+- The LinkedIn connection is used only for **reading** content.
+- You can disconnect LinkedIn at any time.
+- Saved sources can be viewed, replaced, or deleted individually.
+
+If you want to define **how** MakeMeRank should write first, continue with [Personas](/guides/writing-styles).

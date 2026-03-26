@@ -51,7 +51,7 @@
           },
           {
             "group": "Full Report",
-            "pages": ["guides/full-report", "guides/how-analysis-works", "guides/actions"]
+            "pages": ["guides/full-report", "guides/brand-insights", "guides/how-analysis-works", "guides/actions"]
           },
           {
             "group": "Content Generation",

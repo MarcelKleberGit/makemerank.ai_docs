@@ -13,6 +13,12 @@
     "light": "#0DF2DF",
     "dark": "#00B893"
   },
+  "background": {
+    "color": {
+      "light": "#f8fafb",
+      "dark": "#080d16"
+    }
+  },
   "navigation": {
     "global": {
       "anchors": [

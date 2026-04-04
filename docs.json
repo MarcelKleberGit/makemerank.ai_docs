@@ -57,7 +57,13 @@
           },
           {
             "group": "Full Report",
-            "pages": ["guides/full-report", "guides/brand-insights", "guides/how-analysis-works", "guides/actions"]
+            "pages": [
+              "guides/full-report",
+              "guides/brand-insights",
+              "guides/query-fan-out",
+              "guides/how-analysis-works",
+              "guides/actions"
+            ]
           },
           {
             "group": "Content Generation",
@@ -75,7 +81,7 @@
           },
           {
             "group": "Account",
-            "pages": ["guides/plans", "guides/faq"]
+            "pages": ["guides/plans", "guides/teams", "guides/faq"]
           }
         ]
       }

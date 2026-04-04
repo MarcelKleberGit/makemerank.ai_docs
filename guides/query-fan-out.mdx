@@ -1,0 +1,36 @@
+---
+title: "Query Fan Out"
+description: "See which follow-up research paths an answer engine might run after a user question—based on your Full Report—so you understand why visibility can drop behind the first query."
+icon: "diagram-project"
+keywords: ["Query Fan Out", "fan-out", "visibility", "Full Report", "AEO", "research queries"]
+---
+
+## What Query Fan Out does
+
+After a **Full Report**, **Query Fan Out** simulates how a single **source question** (the kind of question a user might ask before an AI starts researching) fans out into **several internal follow-up queries**. Those follow-ups are the paths a system might use even though the user never typed them explicitly.
+
+That helps explain a common pattern: your content may seem fine for the “headline” question, but if it does not cover the **internal fan-out queries**, you can still stay invisible in AI-mediated answers.
+
+## What you need first
+
+- A completed **Full Report** with a **visibility** analysis so there are **presence queries** stored with `prompt_used`. If that data is missing, MakeMeRank cannot build a reliable fan-out basis and will tell you the report is incomplete for this feature.
+- Run **visibility analysis** first if you have no eligible report; then pick that report on the Query Fan Out page.
+
+## What you get
+
+For the selected report, MakeMeRank generates:
+
+- a plausible **source question** (user-style wording before internal research starts)
+- **3 to 6 fan-out queries** as distinct internal research paths (not duplicates of the source question)
+
+The UI explains how these relate to categories such as **category**, **comparison**, and **reviews**-style intents—so you see *why* the model might branch.
+
+## Plan availability
+
+Query Fan Out is available on **paid** plans (**Pro** and **Agency**). The UI may label it as a Pro feature; Agency includes the same capability with higher limits on other quotas—see [Plans & Limits](/guides/plans).
+
+Running an analysis uses your **existing Full Report** scan as input. It does **not** decrement your Brand Insights quota (those limits apply only to Brand Insights runs).
+
+## How it fits the workflow
+
+The dashboard onboarding suggests: **Full Report → Brand Insights → Query Fan Out → Content**. Query Fan Out sharpens the problem (which hidden queries matter) before you invest in content. For positioning and competitor perception, use [Brand Insights](/guides/brand-insights); for methodology of the Full Report, see [How Full Report Works](/guides/how-analysis-works).
